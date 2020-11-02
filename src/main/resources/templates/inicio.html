@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>¡Bienvenido al Quiz!</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<style type="text/css">
+	h1 {
+		text-align: center;
+		margin: 0.5em;
+		padding: 1em;
+	}
+	.entrada {
+		margin: 1% 33%;
+		align-content: center;
+		width: auto;
+	}
+	.boton {
+		margin: 0.5em 0em;
+		align-content: center;
+	}
+	.imagen {
+		display: block;
+  		margin-left: auto;
+ 		margin-right: auto;
+ 		width: 70%;
+	}
+	</style>
+</head>
+<body>
+	<h1>¿Quieres saber que rol encaja mejor para ti?</h1>
+	<img th:src="@{/imagenes/inicio_fogata.jpg}" alt="fogata" class="imagen">
+	<form method="post" th:action="@{/inicio}" autocomplete="on">
+		<div class="form-group entrada">
+			<label for="nombre">Nombre</label>
+			<input type="text" class="form-control" name="nombre" placeholder="Tu nombre">
+			<input type="submit" value="Empezar Quiz" class="btn btn-primary boton" />
+		</div>
+	
+	</form>
+	
+</body>
+</html>

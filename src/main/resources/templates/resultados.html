@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Resultados</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<style type="text/css">
+	h1 {
+		text-align: center;
+		margin: 0.5em;
+		padding: 1em;
+	}
+	.entrada {
+		margin: 1% 33%;
+		align-content: center;
+		width: auto;
+	}
+	.boton {
+		margin: 0.5em 0em;
+		align-content: center;
+	}
+	.imagen {
+		display: block;
+  		margin-left: auto;
+ 		margin-right: auto;
+ 		width: 50%;
+	}
+	</style>
+</head>
+<body>
+	<h1>Resultados</h1>
+	<div class="entrada">
+		<p th:text="${session.sessionNombre}"></p>
+		<p th:text="${session.sessionPuntacion}"></p>
+		<p th:text="${resultado}"></p>
+		<div th:switch="${resultado}">
+			<span th:case="'Tirador'"><img th:src="@{/imagenes/arquero.jpg}" alt="tirador" class="imagen"></span>
+			<span th:case="'Luchador'"><img th:src="@{/imagenes/luchador.jpg}" alt="luchador" class="imagen"></span>
+			<span th:case="'Mago'"><img th:src="@{/imagenes/mago.jpg}" alt="mago" class="imagen"></span>
+			<span th:case="'Asesino'"><img th:src="@{/imagenes/asesino.jpg}" alt="asesino" class="imagen"></span>
+		</div>
+	</div>
+	<form method="post" th:action="@{/resultados}" autocomplete="on">
+		<input type="submit" value="Volver a Intentar" class="btn btn-primary boton"/>
+	</form>
+</body>
+</html>

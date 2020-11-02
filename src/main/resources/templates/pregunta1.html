@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Primera Pregunta</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<style type="text/css">
+	h1 {
+		text-align: center;
+		margin: 0.5em;
+		padding: 1em;
+	}
+	.entrada {
+		margin: 1% 33%;
+		align-content: center;
+		width: auto;
+	}
+	.boton {
+		margin: 0.5em 0em;
+		align-content: center;
+	}
+	.imagen {
+		display: block;
+  		margin-left: auto;
+ 		margin-right: auto;
+ 		width: 50%;
+	}
+	</style>
+</head>
+<body>
+	<h1>¿Si tu amigo esta en una pelea?</h1>
+	<img th:src="@{/imagenes/pregunta1_pelea.jpg}" alt="matones" class="imagen">
+	<form method="post" th:action="@{/pregunta1}" autocomplete="on">
+	<div class="form-group entrada">
+    	<div class="custom-control custom-radio">
+			<input type="radio" name="respuesta" value="tirador" class="custom-control-input" id="1">
+			<label for="1" class="custom-control-label">Escaparte no quieres entrar en problemas</label>
+		</div>
+		<div class="custom-control custom-radio">
+			<input type="radio" name="respuesta" value="mago" class="custom-control-input" id="2">
+			<label for="2" class="custom-control-label">Ayudar a tu amigo manejando la situacion</label>
+		</div>
+		<div class="custom-control custom-radio">
+			<input type="radio" name="respuesta" value="luchador" class="custom-control-input" id="3">
+			<label for="3" class="custom-control-label">Entrar en la pelea</label>
+		</div>
+		<div class="custom-control custom-radio">
+			<input type="radio" name="respuesta" value="asesino" class="custom-control-input" id="4">
+			<label for="4" class="custom-control-label">Escabullirte con él</label>
+		</div>
+	<input type="submit" value="Siguiente" class="btn btn-primary boton" />
+	</div>
+	</form>
+</body>
+</html>

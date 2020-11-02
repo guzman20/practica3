@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Cuarta Pregunta</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<style type="text/css">
+	h1,h2 {
+		text-align: center;
+		margin: 0.5em;
+		padding: 1em;
+	}
+	.entrada {
+		margin: 1% 33%;
+		align-content: center;
+		width: auto;
+	}
+	.boton {
+		margin: 0.5em 45%;
+		align-content: center;
+	}
+	.imagen {
+		display: block;
+  		margin-left: auto;
+ 		margin-right: auto;
+ 		width: 50%;
+	}
+	</style>
+</head>
+<body>
+	<h1>¿Como eres?</h1>
+	<img th:src="@{/imagenes/pregunta4_cualidades.png}" alt="cualidades" class="imagen">
+	<h2>Las siguientes preguntas son del 1 al 10</h2>
+	<form method="post" th:action="@{/pregunta4}" autocomplete="on">
+		<fieldset class="form-group entrada">
+			<label for="guapo">¿Que tan guapo eres?</label>
+  			<input type="range" class="custom-range" id="guapo" name="guapo" min="1" max="10" >
+  		</fieldset>
+  		<fieldset class="form-group entrada">
+  			<label for="fuerte">¿Que tan fuerte eres?</label>
+  			<input type="range" class="custom-range" id="fuerte" name="fuerte" min="1" max="10">
+  		</fieldset>
+  		<fieldset class="form-group entrada">
+  			<label for="inteligente">¿Que tan inteligente eres?</label>
+  			<input type="range" class="custom-range" id="inteligente" name="inteligente" min="1" max="10">
+  		</fieldset>
+  		<fieldset class="form-group entrada">
+  			<label for="astuto">¿Que tan astuto eres?</label>
+  			<input type="range" class="custom-range" id="astuto" name="astuto" min="1" max="10">
+  		</fieldset>
+		<input type="submit" value="Siguiente" class="btn btn-primary boton" />
+	</form>
+</body>
+</html>

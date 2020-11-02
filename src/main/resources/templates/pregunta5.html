@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Quinta Pregunta</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<style type="text/css">
+	h1,h2 {
+		text-align: center;
+		margin: 0.5em;
+		padding: 1em;
+	}
+	.entrada {
+		margin: 1% 33%;
+		align-content: center;
+		width: auto;
+	}
+	.boton {
+		margin: 0.5em 45%;
+		align-content: center;
+	}
+	.imagen {
+		display: block;
+  		margin-left: auto;
+ 		margin-right: auto;
+ 		width: 50%;
+	}
+	</style>
+</head>
+<body>
+	<h1>¿Que genero te gusta mas?</h1>
+	<img th:src="@{/imagenes/pregunta5_genero.png}" alt="genero" class="imagen">
+	<h2>Reponde del 1 al 10 siendo 1 no puedo verlo y 10 me encanta</h2>
+	<form method="post" th:action="@{/pregunta5}" autocomplete="on">
+		<div class="form-group entrada">
+			<label for="romance">Romance</label>
+  			<input type="number" class="form-control" id="romance" name="romance" min="1" max="10">
+  		</div>
+  		<div class="form-group entrada">
+  			<label for="aventura">Aventura</label>
+  			<input type="number" class="form-control" id="aventura" name="aventura" min="1" max="10">
+  		</div>
+  		<div class="form-group entrada">
+  			<label for="drama">Drama</label>
+  			<input type="number" class="form-control" id="drama" name="drama" min="1" max="10">
+  		</div>
+  		<div class="form-group entrada">
+  			<label for="cienciaficcion">Cienciaficcion</label>
+  			<input type="number" class="form-control" id="cienciaficcion" name="cienciaficcion" min="1" max="10">
+  		</div>
+	<input type="submit" value="Siguiente" class="btn btn-primary boton" />
+	</form>
+</body>
+</html>

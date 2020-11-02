@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Tercera Pregunta</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<style type="text/css">
+	h1 {
+		text-align: center;
+		margin: 0.5em;
+		padding: 1em;
+	}
+	.entrada {
+		margin: 1% 33%;
+		align-content: center;
+		width: auto;
+	}
+	.boton {
+		margin: 0.5em 0em;
+		align-content: center;
+	}
+	.imagen {
+		display: block;
+  		margin-left: auto;
+ 		margin-right: auto;
+ 		width: 50%;
+	}
+	</style>
+</head>
+<body>
+	<h1>¿Que signo del zodiaco eres?</h1>
+	<img th:src="@{/imagenes/pregunta3_zodiaco.jpg}" alt="zodiaco" class="imagen">
+	<form method="post" th:action="@{/pregunta3}" autocomplete="on">
+	<div class="form-group entrada">
+  		<select name="respuesta" id="respuesta" class="custom-select">
+  			<option value="error" selected>Seleccione un valor</option>
+	    	<option value="tirador">Acuario</option>
+	    	<option value="asesino">Piscis</option>
+	    	<option value="mago">Aries</option>
+	    	<option value="luchador">Tauro</option>
+	    	<option value="tirador">Géminis</option>
+	    	<option value="asesino">Cáncer</option>
+	    	<option value="mago">Leo</option>
+	    	<option value="luchador">Virgo</option>
+	    	<option value="tirador">Libra</option>
+	    	<option value="asesino">Escorpio</option>
+	    	<option value="mago">Sagitario</option>
+	    	<option value="luchador">Capricornio</option>
+  		</select>
+  		<input type="submit" value="Siguiente" class="btn btn-primary boton"/>
+  	</div>
+	</form>
+</body>
+</html>

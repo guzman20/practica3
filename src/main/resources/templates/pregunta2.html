@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Segunda Pregunta</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<style type="text/css">
+	h1 {
+		text-align: center;
+		margin: 0.5em;
+		padding: 1em;
+	}
+	.entrada {
+		margin: 1% 33%;
+		align-content: center;
+		width: auto;
+	}
+	.boton {
+		margin: 0.5em 0em;
+		align-content: center;
+	}
+	.imagen {
+		display: block;
+  		margin-left: auto;
+ 		margin-right: auto;
+ 		width: 50%;
+	}
+	</style>
+</head>
+<body>
+	<h1>¿Que haces en tu tiempo libre?</h1>
+	<img th:src="@{/imagenes/pregunta2_actividades.png}" alt="actividades" class="imagen">
+	<form method="post" th:action="@{/pregunta2}" autocomplete="on">
+	<div class="form-group entrada">
+    	<div class="custom-control custom-checkbox">
+			<input type="checkbox" name="respuesta" value="luchador" id="1" class="custom-control-input">
+			<label for="1" class="custom-control-label">Practicar deporte</label>
+		</div>
+		<div class="custom-control custom-checkbox">
+			<input type="checkbox" name="respuesta" value="asesino" id="2" class="custom-control-input">
+			<label for="2" class="custom-control-label">Quedar con amigos</label>
+		</div>
+		<div class="custom-control custom-checkbox">
+			<input type="checkbox" name="respuesta" value="tirador" id="3" class="custom-control-input">
+			<label for="3" class="custom-control-label">Ver series/peliculas</label>
+		</div>
+		<div class="custom-control custom-checkbox">
+			<input type="checkbox" name="respuesta" value="mago" id="4" class="custom-control-input">
+			<label for="4" class="custom-control-label">Leer libros</label>
+		</div>
+		<input type="submit" value="Siguiente" class="btn btn-primary boton"/>
+	</div>
+	</form>
+</body>
+</html>
