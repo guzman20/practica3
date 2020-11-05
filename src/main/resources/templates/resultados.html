@@ -39,6 +39,23 @@
 			<span th:case="'Mago'"><img th:src="@{/imagenes/mago.jpg}" alt="mago" class="imagen"></span>
 			<span th:case="'Asesino'"><img th:src="@{/imagenes/asesino.jpg}" alt="asesino" class="imagen"></span>
 		</div>
+		<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Puntuaje</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="usuario: ${usuarios}">
+						<td th:text="${usuario.id}" />
+						<td th:text="${usuario.nombre}" />
+						<td th:text="${usuaario.puntuaje}" />
+					</tr>
+					</tbody>
+			</table>
+			
 	</div>
 	<form method="post" th:action="@{/resultados}" autocomplete="on">
 		<input type="submit" value="Volver a Intentar" class="btn btn-primary boton"/>

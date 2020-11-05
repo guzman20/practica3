@@ -1,10 +1,12 @@
-package com.example.demo;
+package com.example;
+
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ControladorQuiz {
+	
+	@Autowired
+	private UsuarioDao usuariodao;
 
 	@GetMapping("/inicio")
 	public String inicio_get(Model model, HttpSession session) {
@@ -20,13 +25,13 @@ public class ControladorQuiz {
 	}
 
 	@PostMapping(value = "/inicio")
-	public String inicio_post(Model model, HttpServletRequest request, @RequestParam String nombre) {
+	public String inicio_post(Model model, HttpServletRequest request, @RequestParam(value="nombre",required=false) String nombre) {
 		Integer puntacion = (Integer) request.getAttribute("sessionPuntacion");
 		if (puntacion == null) {
 			puntacion = 0;
 			request.getSession().setAttribute("sessionPuntacion", puntacion);
 		}
-		if (nombre.equals(null))
+		if (nombre.equals(null) || nombre.isBlank())
 			return "redirect:/inicio";
 		else
 			request.getSession().setAttribute("sessionNombre", nombre);
@@ -37,9 +42,11 @@ public class ControladorQuiz {
 
 	@PostMapping(value = "/pregunta1")
 	public String pregunta_post(Model model, 
-			@RequestParam String respuesta, 
+			@RequestParam(value="respuesta",required=false) String respuesta  , 
 			HttpServletRequest request) {
 		Integer puntacion = (Integer) request.getSession().getAttribute("sessionPuntacion");
+		if(respuesta==null)
+			return "redirect:/pregunta1";
 		switch(respuesta) {
 		case "tirador":
 			puntacion=puntacion+3;
@@ -213,13 +220,19 @@ public class ControladorQuiz {
 			resultado="Luchador";
 		else
 			resultado="Asesino";
+		String nombre= (String) request.getSession().getAttribute("sessionNombre");
 		model.addAttribute("resultado", resultado);
+		Usuario usuario = new Usuario(nombre,puntacion);
+		usuariodao.save(usuario);
+		List<Usuario> lista = usuariodao.findAll();
+		model.addAttribute("lista",lista);
 		return "resultados";
 		}
-	/*
+	
 	@PostMapping(value = "/resultados")
 	public String resultados_post(Model model,
 			HttpServletRequest request) {
-		return "pregunta7";
-		}*/
+		
+		return "redirect:/inicio";
+		}
 	}
