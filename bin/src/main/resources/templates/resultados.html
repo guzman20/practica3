@@ -42,25 +42,23 @@
 		<table class="table">
 				<thead>
 					<tr>
+						<th scope="col">Id</th>
 						<th scope="col">Nombre</th>
 						<th scope="col">Puntuaje</th>
-						<th scope="col">Resultado</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="usuario: ${lista}">
+					<tr th:each="usuario: ${usuarios}">
+						<td th:text="${usuario.id}" />
 						<td th:text="${usuario.nombre}" />
-						<td th:text="${usuario.puntuaje}" />
-						<td th:text="${usuario.resultado}" />
+						<td th:text="${usuaario.puntuaje}" />
 					</tr>
 					</tbody>
 			</table>
 			
 	</div>
-	<div class="entrada">
-		<form method="post" th:action="@{/resultados}" autocomplete="on">
-			<input type="submit" value="Volver a Intentar" class="btn btn-primary boton"/>
-		</form>
-	</div>
+	<form method="post" th:action="@{/resultados}" autocomplete="on">
+		<input type="submit" value="Volver a Intentar" class="btn btn-primary boton"/>
+	</form>
 </body>
 </html>

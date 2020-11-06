@@ -222,10 +222,14 @@ public class ControladorQuiz {
 			resultado="Asesino";
 		String nombre= (String) request.getSession().getAttribute("sessionNombre");
 		model.addAttribute("resultado", resultado);
-		Usuario usuario = new Usuario(nombre,puntacion);
+		
+		Usuario usuario = new Usuario(nombre,puntacion,resultado);
 		usuariodao.save(usuario);
-		List<Usuario> lista = usuariodao.findAll();
-		model.addAttribute("lista",lista);
+		
+		
+		List<Usuario> usuarios = usuariodao.findAll();
+		model.addAttribute("lista",usuarios);
+		
 		return "resultados";
 		}
 	

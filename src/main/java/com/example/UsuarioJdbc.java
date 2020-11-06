@@ -1,7 +1,6 @@
 package com.example;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,7 +13,7 @@ public class UsuarioJdbc implements UsuarioDao {
 	
 	@Override
 	public int save(Usuario usuario) {
-		return jdbcTemplate.update("insert into usuarios (nombre, puntuaje) values(?,?)", usuario.getNombre(), usuario.getPuntuaje());
+		return jdbcTemplate.update("insert into usuarios (nombre, puntuaje, resultado) values(?,?,?)", usuario.getNombre(), usuario.getPuntuaje(), usuario.getResultado());
 	}
 
 	@Override
@@ -29,19 +28,7 @@ public class UsuarioJdbc implements UsuarioDao {
 
 	@Override
 	public List<Usuario> findAll() {
-		return jdbcTemplate.query("select * from usuarios",
-				(rs, rowNum) -> new Usuario(rs.getLong("id"), rs.getString("nombre"), rs.getInt("puntuaje")));
-	}
-
-	@Override
-	public Optional<Usuario> findById(Long id) {
-		return jdbcTemplate.queryForObject("select * from usuarios where id = ?", new Object[] { id }, (rs,
-				rowNum) -> Optional.of(new Usuario(rs.getLong("id"), rs.getString("nombre"), rs.getInt("puntuaje"))));
-	}
-
-	@Override
-	public int getPuntuajeByName(String nombre) {
-		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.query("select * from usuarios ORDER BY id DESC LIMIT 5 ",
+				(rs, rowNum) -> new Usuario(rs.getLong("id"), rs.getString("nombre"), rs.getInt("puntuaje"), rs.getString("resultado")));
 	}
 }

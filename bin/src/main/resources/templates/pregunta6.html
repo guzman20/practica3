@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Sexta Pregunta</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<style type="text/css">
+	h1 {
+		text-align: center;
+		margin: 1em;
+		padding: 1em;
+	}
+	.entrada {
+		align-content: center;
+		margin: 0.5em 2em;
+	}
+	.boton {
+		margin: 0.5em 0.5em;
+		width:23%;
+	}
+	img {
+		width: 100%;
+	}
+	</style>
+</head>
+<body>
+	<h1>¿Arma preferida?</h1>
+	<form method="post" th:action="@{/pregunta6}" autocomplete="on">
+	<div class="entrada">
+		<button name="respuesta" value="tirador" class="btn btn-primary boton"><img th:src="@{/imagenes/arco.png}" alt="arco"></button>
+		<button name="respuesta" value="mago" class="btn btn-success boton"><img th:src="@{/imagenes/varita.png}" alt="varita"></button>
+		<button name="respuesta" value="luchador" class="btn btn-info boton"><img th:src="@{/imagenes/escudo.png}" alt="escudo" ></button>
+		<button name="respuesta" value="asesino" class="btn btn-danger boton"><img th:src="@{/imagenes/katana.png}" alt="katana"></button>
+	</div>
+	</form>
+</body>
+</html>

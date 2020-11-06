@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Septima Pregunta</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<style type="text/css">
+	h1 {
+		text-align: center;
+		margin: 0.5em;
+		padding: 1em;
+	}
+	.entrada {
+		margin: 1% 33%;
+		align-content: center;
+		width: auto;
+	}
+	.boton {
+		margin: 0.5em 45%;
+		align-content: center;
+	}
+	.imagen {
+		display: block;
+  		margin-left: auto;
+ 		margin-right: auto;
+ 		width: 50%;
+	}
+	</style>
+</head>
+<body>
+	<h1>Cuentanos algo mas sobre ti.</h1>
+	<img th:src="@{/imagenes/pregunta7_pensando.jpg}" alt="pensando" class="imagen">
+	<form method="post" th:action="@{/pregunta7}" autocomplete="on">
+	<div class="form-group entrada">
+		<textarea class="form-control" name="respuesta" id="respuesta"></textarea>
+	</div>
+	<input type="submit" value="Siguiente" class="btn btn-primary boton"/>
+	</form>
+</body>
+</html>
